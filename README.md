@@ -1,4 +1,4 @@
-Repo for the (Burnable Color)[https://ficsit.app/mod/BWtSJ95xm8XF9S] mod for Satisfactory.
+Repo for the [Burnable Color](https://ficsit.app/mod/BWtSJ95xm8XF9S) mod for Satisfactory.
 
 Icon credits:
 <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
