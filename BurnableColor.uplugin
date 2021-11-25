@@ -2,11 +2,13 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.0.0",
+    "SemVersion": "1.0.0",
+    "RemoteVersionRange": "1.0.0",
 	"FriendlyName": "BurnableColor",
-	"Description": "",
-	"Category": "Other",
-	"CreatedBy": "",
-	"CreatedByURL": "",
+	"Description": "A mod to add the ability to burn color cartridges in a fuel generator.",
+	"Category": "Modding",
+	"CreatedBy": "adamsogm",
+	"CreatedByURL": "https://github.com/adamsong/BurnableColor",
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
@@ -20,5 +22,13 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
-	]
+	],
+    "Plugins": {
+        "SML": {
+            "SemVersion": "^3.2.0",
+            "bIsOptional": false,
+            "bIsBasePlugin": false,
+            "Enabled": true
+        }
+    }
 }
