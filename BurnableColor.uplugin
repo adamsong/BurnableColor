@@ -23,12 +23,13 @@
 			"LoadingPhase": "Default"
 		}
 	],
-    "Plugins": {
-        "SML": {
+    "Plugins": [
+        {
+            "Name": "SML",
             "SemVersion": "^3.2.0",
             "bIsOptional": false,
             "bIsBasePlugin": false,
             "Enabled": true
         }
-    }
+    ]
 }
