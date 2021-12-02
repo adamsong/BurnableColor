@@ -1,9 +1,9 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.0.0",
-    "SemVersion": "1.0.0",
-    "RemoteVersionRange": "1.0.0",
+	"VersionName": "1.0.1",
+    "SemVersion": "1.0.1",
+    "RemoteVersionRange": "^1.0.1",
 	"FriendlyName": "BurnableColor",
 	"Description": "A mod to add the ability to burn color cartridges in a fuel generator.",
 	"Category": "Modding",
