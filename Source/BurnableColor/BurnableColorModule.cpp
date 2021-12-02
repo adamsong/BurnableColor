@@ -2,25 +2,39 @@
 
 #include "FGItemDescriptorInk.h"
 
+#include "Buildables/FGBuildableGeneratorFuel.h"
 #include "Patching/NativeHookManager.h"
 
-#include "Buildables/FGBuildableGeneratorFuel.h"
-
 void FBurnableColorModule::StartupModule() {
-	RegisterHooks();
-}
-
-void FBurnableColorModule::RegisterHooks() {
 #if !WITH_EDITOR
-	SUBSCRIBE_METHOD(AFGBuildableGeneratorFuel::IsValidFuel, [](auto& scope, const AFGBuildableGeneratorFuel* self, TSubclassOf< UFGItemDescriptor > resource) {
-		if (self->GetFuelResourceForm() == EResourceForm::RF_LIQUID) {
-			TSubclassOf< UFGItemDescriptorInk > inkResource = resource;
-			if (resource != nullptr) {
-				scope.Override(true);
-			}
-		}
-	});
+	RegisterHooks();
 #endif
 }
 
+#if !WITH_EDITOR
+void FBurnableColorModule::RegisterHooks() {
+	UE_LOG(LogBurnableColor, Log, TEXT("Registering hooks"));
+	SUBSCRIBE_METHOD(AFGBuildableGeneratorFuel::IsValidFuel, [](auto& Scope, const AFGBuildableGeneratorFuel* Self, const TSubclassOf<UFGItemDescriptor> Resource)
+	{
+		if(HookIsValidFuel(Self, Resource))
+		{
+			Scope.Override(true);
+		}
+	});
+}
+
+bool FBurnableColorModule::HookIsValidFuel(const AFGBuildableGeneratorFuel* Self, const TSubclassOf< UFGItemDescriptor > Resource) {
+	if(Resource == nullptr) return false;
+	if (Self->GetFuelResourceForm() == EResourceForm::RF_LIQUID)
+	{
+		if (const TSubclassOf<UFGItemDescriptorInk> InkResource(Resource); InkResource != nullptr) {
+			return true;
+		}
+	}
+	return false;
+}
+#endif
+
 IMPLEMENT_GAME_MODULE(FBurnableColorModule, BurnableColor);
+
+DEFINE_LOG_CATEGORY(LogBurnableColor);

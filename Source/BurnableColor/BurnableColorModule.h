@@ -9,5 +9,10 @@ public:
 	virtual bool IsGameModule() const override { return true; }
 
 private:
-	void RegisterHooks();
+#if !WITH_EDITOR
+	static void RegisterHooks();
+	static bool HookIsValidFuel(const class AFGBuildableGeneratorFuel* Self, const TSubclassOf< class UFGItemDescriptor > Resource);
+#endif
 };
+
+DECLARE_LOG_CATEGORY_EXTERN(LogBurnableColor, Log, Log);
